@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 
 @RestController
-@RequestMapping(path = "/media")
+@RequestMapping(path = "${viloveul.controller.media:/media}")
 public class MediaController extends AbstractController {
 
     @Autowired

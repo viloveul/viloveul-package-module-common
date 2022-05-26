@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/owner")
+@RequestMapping(path = "${viloveul.controller.owner:/owner}")
 public class OwnerController {
 
     @Autowired

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/permission")
+@RequestMapping(path = "${viloveul.controller.permission:/permission}")
 public class PermissionController {
 
     @Autowired(required = false)
