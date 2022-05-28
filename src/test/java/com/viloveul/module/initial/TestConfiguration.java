@@ -4,7 +4,6 @@ import com.viloveul.context.ViloveulConfiguration;
 import com.viloveul.context.behaviour.EntityNamingStrategy;
 import com.viloveul.context.behaviour.EntityEventInterceptor;
 import com.viloveul.context.ApplicationContainer;
-import com.viloveul.context.util.encryption.Tokenizer;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,7 +104,7 @@ public class TestConfiguration {
         dataSourceInitializer.setDataSource(dataSource());
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.addScript(new ClassPathResource("/migrations/postgres/01-schema-audit.sql"));
-        databasePopulator.addScript(new ClassPathResource("/migrations/postgres/02-schema-common.sql"));
+        databasePopulator.addScript(new ClassPathResource("/migrations/schema.sql"));
         dataSourceInitializer.setDatabasePopulator(databasePopulator);
         dataSourceInitializer.setEnabled(true);
         return dataSourceInitializer;
