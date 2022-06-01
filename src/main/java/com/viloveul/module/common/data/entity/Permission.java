@@ -1,7 +1,7 @@
 package com.viloveul.module.common.data.entity;
 
 import com.viloveul.context.base.AbstractMidEntity;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.viloveul.context.auth.AccessControl;
 import com.viloveul.context.auth.model.PermissionModel;
@@ -17,8 +17,8 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @NoArgsConstructor
-@Table(name = "tprefix_permission", schema = "schema")
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@Table(name = "tbl_permission", schema = "schema")
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @AccessControl(resource = "PERMISSION")
 public class Permission extends AbstractMidEntity implements PermissionModel {
 

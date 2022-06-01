@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,13 @@ public class PermissionController {
     public ResponseEntity<Permission> create(@RequestBody @Valid PermissionForm form) {
         Permission permission = this.permissionService.create(form);
         return new ResponseEntity<>(permission, HttpStatus.CREATED);
+    }
+
+    @Transactional
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasPermission(#id, 'PERMISSION', 'DELETE')")
+    public void delete(@PathVariable("id") String id) {
+        this.permissionService.delete(id);
     }
 }

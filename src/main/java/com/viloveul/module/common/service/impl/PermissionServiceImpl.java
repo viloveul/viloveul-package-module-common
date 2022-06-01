@@ -42,12 +42,9 @@ public class PermissionServiceImpl implements PermissionService {
         this.permissionRepository.save(permission);
     }
 
+    @Override
     public void delete(String id) {
-        Optional<Permission> result = this.permissionRepository.findById(id);
-        if (result.isPresent()) {
-            Permission ability = result.get();
-            this.permissionRepository.delete(ability);
-        }
+        this.permissionRepository.deleteById(id);
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.viloveul.module.common.data.entity;
 
 import com.viloveul.context.base.AbstractMidEntity;
 import com.viloveul.context.type.VisibilityType;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,9 +19,9 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "tprefix_setting", schema = "schema")
+@Table(name = "tbl_setting", schema = "schema")
 @EqualsAndHashCode(callSuper = true)
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Setting extends AbstractMidEntity {
 
     @Column(name = "key")

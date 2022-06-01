@@ -1,7 +1,7 @@
 package com.viloveul.module.common.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.viloveul.context.base.AbstractEntity;
 import com.viloveul.context.auth.AccessControl;
@@ -18,9 +18,9 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "tprefix_activity", schema = "schema")
+@Table(name = "tbl_activity", schema = "schema")
 @EqualsAndHashCode(callSuper = true)
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @AccessControl(resource = "ACTIVITY")
 public class Activity extends AbstractEntity {
 

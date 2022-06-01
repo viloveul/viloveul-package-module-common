@@ -1,7 +1,7 @@
 package com.viloveul.module.common.data.entity;
 
 import com.viloveul.context.base.AbstractMidEntity;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.viloveul.context.auth.AccessControl;
 import com.viloveul.context.auth.model.OwnerModel;
@@ -18,9 +18,9 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @NoArgsConstructor
-@Table(name = "tprefix_owner", schema = "schema")
+@Table(name = "tbl_owner", schema = "schema")
 @EqualsAndHashCode(callSuper = true)
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @AccessControl(resource = "OWNER")
 public class Owner extends AbstractMidEntity implements OwnerModel {
 

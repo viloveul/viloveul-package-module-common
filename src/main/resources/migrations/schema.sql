@@ -140,3 +140,4 @@ CREATE TRIGGER audit_trail_trigger AFTER INSERT OR UPDATE OR DELETE ON tbl_setti
 
 DROP TRIGGER IF EXISTS audit_trail_trigger ON tbl_media;
 CREATE TRIGGER audit_trail_trigger AFTER INSERT OR UPDATE OR DELETE ON tbl_media FOR EACH ROW EXECUTE PROCEDURE audit_trail_setup('id');
+
