@@ -17,6 +17,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<properties>
+		<final.name>viloveul-module-common</final.name>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.viloveul.package</groupId>
@@ -84,7 +88,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
@@ -126,8 +129,12 @@
     </dependencies>
 
 	<build>
-		<finalName>viloveul-module-common</finalName>
+		<finalName>${final.name}</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -138,7 +145,22 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<finalName>${final.name}-standalone</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
 			</plugin>
 		</plugins>
 		<resources>
